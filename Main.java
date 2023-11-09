@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class Main {
 	public static void main(String [] args){
-    
+
 		 Products
 		        FeaturedProduct[] featuredProducts = {
 				                new FeaturedProduct("Don't Tell Mom", "Flirt", 799.99),
@@ -52,7 +52,3 @@ public class Main {
 				        return price;
 				    }
 				}
-		
-		
-	}
-}
