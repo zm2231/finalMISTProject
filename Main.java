@@ -7,48 +7,83 @@ import java.util.HashSet;
 public class Main {
 	public static void main(String [] args){
 
-		 Products
-		        FeaturedProduct[] featuredProducts = {
-				                new FeaturedProduct("Don't Tell Mom", "Flirt", 799.99),
-				                new FeaturedProduct("Walk It Like You Talk It", "Beauty Babes", 550.99),
-				                new FeaturedProduct("Spicy and Sexy", "Party Girl Prom", 699.99)
-				        };
+		Supplier[] suppliers = {
+                new Supplier("Flirt", "Georiga", "404-982-7654"),
+                new Supplier("Beauty Babes", "Florida", "901-879-0342"),
+                new Supplier("Party Girl Prom", "Alabama", "860-123-6754")
+        };
 
-				        for (Supplier supplier : suppliers) {
-				            System.out.println("Supplier: " + supplier.getName() +
-				                    ", Location: " + supplier.getLocation() +
-				                    ", Contact: " + supplier.getContact());
-				        }
+        ArrayList<FeaturedProduct> featuredProducts = new ArrayList<>();
+        featuredProducts.add(new FeaturedProduct("Don't Tell Mom", "Flirt", 799.99));
+        featuredProducts.add(new FeaturedProduct("Walk It Like You Talk It", "Beauty Babes", 550.99));
+        featuredProducts.add(new FeaturedProduct("Spicy and Sexy", "Party Girl Prom", 699.99));
 
-				        for (FeaturedProduct product : featuredProducts) {
-				            System.out.println("Product: " + product.getName() +
-				                    ", Supplier: " + product.getSupplier() +
-				                    ", Price: $" + product.getPrice());
-				        }
-				    }
-				}
+        for (Supplier supplier : suppliers) {
+            System.out.println("Supplier: " + supplier.getName() +
+                    ", Location: " + supplier.getLocation() +
+                    ", Contact: " + supplier.getContact());
+        }
 
-				
-				class FeaturedProduct {
-				    private String name;
-				    private String supplier;
-				    private double price;
+        for (FeaturedProduct product : featuredProducts) {
+            System.out.println("Product: " + product.getName() +
+                    ", Supplier: " + product.getSupplier() +
+                    ", Price: $" + product.getPrice());
+        }
+    }
+}
+/*
+public class FeaturedProduct {
+    private String name;
+    private String supplier;
+    private double price;
 
-				    public FeaturedProduct(String name, String supplier, double price) {
-				        this.name = name;
-				        this.supplier = supplier;
-				        this.price = price;
-				    }
+    public FeaturedProduct(String name, String supplier, double price) {
+        this.name = name;
+        this.supplier = supplier;
+        this.price = price;
+    }
 
-				    public String getName() {
-				        return name;
-				    }
+    public String getName() {
+        return name;
+    }
 
-				    public String getSupplier() {
-				        return supplier;
-				    }
+    public String getSupplier() {
+        return supplier;
+    }
 
-				    public double getPrice() {
-				        return price;
-				    }
-				}
+    public double getPrice() {
+        return price;
+    }
+    
+}
+/*
+
+/*
+public class Supplier {
+    private String name;
+    private String location;
+    private String contact;
+
+    public Supplier(String name, String location, String contact) {
+        this.name = name;
+        this.location = location;
+        this.contact = contact;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+    
+}
+*/
+
+
+
