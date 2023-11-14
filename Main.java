@@ -32,14 +32,8 @@ public class Main {
                     ", Price: $" + product.getPrice());
         }
         
-        String input = scnr.next();
-        input.toLowerCase();
-        
-        while(!input.equals("done")) {
-        	Checkout.add(input)
-        	input = scnr.next();
-        	input.toLowerCase()
-        }
+     
+      
         
     }
 }
