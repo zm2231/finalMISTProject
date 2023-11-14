@@ -15,10 +15,12 @@ public class Main {
                 new Supplier("Party Girl Prom", "Alabama", "860-123-6754")
         };
 
+        products.add(new Product("Don't Tell Mom", "Flirt", 799.99));
+        products.add(new Product("Walk It Like You Talk It", "Beauty Babes", 550.99));
+        products.add(new Product("Spicy and Sexy", "Party Girl Prom", 699.99));
+        
         ArrayList<FeaturedProduct> featuredProducts = new ArrayList<>();
-        featuredProducts.add(new FeaturedProduct("Don't Tell Mom", "Flirt", 799.99));
-        featuredProducts.add(new FeaturedProduct("Walk It Like You Talk It", "Beauty Babes", 550.99));
-        featuredProducts.add(new FeaturedProduct("Spicy and Sexy", "Party Girl Prom", 699.99));
+        FeaturedProduct.addFeaturedProduct(products, featuredProducts, "Don't Tell Mom");
 
         for (Supplier supplier : suppliers) {
             System.out.println("Supplier: " + supplier.getName() +
@@ -31,6 +33,13 @@ public class Main {
                     ", Supplier: " + product.getSupplier() +
                     ", Price: $" + product.getPrice());
         }
+
+        for (Product product : products) {
+            System.out.println("Product Name: " + product.getName() +
+                    ", Supplier: " + product.getSupplier() +
+                    ", Price: $" + product.getPrice());
+        }
+
         
      
       
@@ -59,6 +68,15 @@ public class FeaturedProduct {
 
     public double getPrice() {
         return price;
+    }
+
+    public static void addFeaturedProduct(HashSet<Product> products, ArrayList<FeaturedProduct> featuredProducts, String productName) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(productName)) {
+                featuredProducts.add(new FeaturedProduct(product.getName(), product.getSupplier(), product.getPrice()));
+                break;
+            }
+        }
     }
     
 }
@@ -119,6 +137,81 @@ private double totalCost;
 }
 */
 
+/*
+import java.util.HashSet;
+public class Product {
+    private String name;
+    private String supplier;
+    private double price;
+
+    public Product(String name, String supplier, double price) {
+        this.name = name;
+        this.supplier = supplier;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean isEqual = false;
+        if (this == o) {
+            isEqual = true;
+        }
+        else if (o != null && getClass() == o.getClass()) {
+            Product product = (Product) o;
+            isEqual = Double.compare(product.price, price) == 0 && name.equals(product.name) && supplier.equals(product.supplier);
+        }
+        return isEqual;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, supplier, price);
+    }
+}
+    */
+/*
+public class User {
+    private String username;
+    private String password;
+    private String email;
+    private int birthYear;
+    private int birthMonth;
+    private int birthDay;
+    private boolean isDOBSet;
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.isDOBSet = false;
+    }
+
+    public User(String username, String password, String email, int birthYear, int birthMonth, int birthDay) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.birthYear = birthYear;
+        this.birthMonth = birthMonth;
+        this.birthDay = birthDay;
+        this.isDOBSet = true;
+    }
+
+    public boolean isBirthday(int year, int month, int day) {
+        return isDOBSet && this.birthYear == year && this.birthMonth == month && this.birthDay == day;
+    }
+}
+*/
 
 
 
