@@ -6,6 +6,8 @@ import java.util.HashSet;
 
 public class Main {
 	public static void main(String [] args){
+		
+		Scanner scnr = new Scanner(System.in);
 
 		Supplier[] suppliers = {
                 new Supplier("Flirt", "Georiga", "404-982-7654"),
@@ -29,6 +31,16 @@ public class Main {
                     ", Supplier: " + product.getSupplier() +
                     ", Price: $" + product.getPrice());
         }
+        
+        String input = scnr.next();
+        input.toLowerCase();
+        
+        while(!input.equals("done")) {
+        	Checkout.add(input)
+        	input = scnr.next();
+        	input.toLowerCase()
+        }
+        
     }
 }
 /*
@@ -84,6 +96,35 @@ public class Supplier {
     
 }
 */
+
+/* import java.util.HashSet;
+import java.util.Scanner;
+public class Checkout {
+
+private HashSet<String> Checkout = new HashSet<String>();	
+	
+private int i;
+private double totalCost;
+
+	public void addCart(Scanner scnr) {
+		String addition = scnr.nextLine();
+		String key = addition.toLowerCase();
+		String check = " ";
+		
+	while(!check.equals("done")) {
+		Checkout.add(key);
+		key = scnr.nextLine();
+		check = key.toLowerCase();
+		}
+	}
+	
+	public void printCart() {
+		
+	}
+	
+}
+*/
+
 
 
 
