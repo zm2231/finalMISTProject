@@ -1,24 +1,15 @@
-public class FeaturedProduct {
-    private String name;
-    private String supplier;
-    private double price;
-
+public class FeaturedProduct extends Product {
+    public boolean isFeatured;
     public FeaturedProduct(String name, String supplier, double price) {
-        this.name = name;
-        this.supplier = supplier;
-        this.price = price;
+        super(name, supplier, price);
+        this.isFeatured = true;
     }
-
-    public String getName() {
-        return name;
+    public FeaturedProduct(Product product) {
+        super(product.getName(), product.getSupplier(), product.getPrice());
+        this.isFeatured = true;
     }
-
-    public String getSupplier() {
-        return supplier;
-    }
-
-    public double getPrice() {
-        return price;
+    public boolean isFeatured() {
+        return isFeatured;
     }
 
     public static void addFeaturedProduct(HashSet<Product> products, ArrayList<FeaturedProduct> featuredProducts, String productName) {
