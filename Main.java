@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String [] args){
 		
 		Scanner scnr = new Scanner(System.in);
-/*
+
 		Supplier[] suppliers = {
                 new Supplier("Flirt", "Georiga", "404-982-7654"),
                 new Supplier("Beauty Babes", "Florida", "901-879-0342"),
@@ -20,8 +20,7 @@ public class Main {
         products.add(new Product("Spicy and Sexy", "Party Girl Prom", 699.99));
         
         ArrayList<FeaturedProduct> featuredProducts = new ArrayList<>();
-*/
-        boutique.addFeaturedProduct("Don't Tell Mom");
+        FeaturedProduct.addFeaturedProduct(products, featuredProducts, "Don't Tell Mom");
 
         for (Supplier supplier : suppliers) {
             System.out.println("Supplier: " + supplier.getName() +
@@ -40,10 +39,8 @@ public class Main {
                     ", Supplier: " + product.getSupplier() +
                     ", Price: $" + product.getPrice());
         }
-
-
-
-
-
+        
+      
+        
     }
 }

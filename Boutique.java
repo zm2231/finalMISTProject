@@ -41,4 +41,10 @@ public class Boutique {
     public Supplier[] getSuppliers() {
         return suppliers;
     }
+    
+    for (Product product : products) {
+        Checkout.Selections(product.getName(), product.getPrice());
+        }
+    
+    
 }
