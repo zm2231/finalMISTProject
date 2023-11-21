@@ -14,11 +14,15 @@ public class Boutique {
     }
 
     private void initializeSuppliers() {
-        // to-do, copy over suppliers from Main.java
+        suppliers = new Supplier[] ("Flirt", "Georgia", "404-982-7654");
+        suppliers = new Supplier[] ("Beauty Babes", "Florida", "901-879-0342");
+        suppliers = new Supplier[] ("Party Girl Prom", "Alabama", "860-123-6754");
     }
 
     private void initializeProducts() {
-        // to-do, copy over products from Main.java
+        products.add(new Product("Don't Tell Mom", "Flirt", 799.99));
+        products.add(new Product("Walk It Like You Talk It", "Beauty Babes", 550.99));
+        products.add(new Product("Spicy and Sexy", "Party Girl Prom", 699.99));
     }
 
     public  void addFeaturedProduct(String productName) {
