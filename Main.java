@@ -40,7 +40,24 @@ public class Main {
                     ", Price: $" + product.getPrice());
         }
         
-      
+         		
+        System.out.println("Please Type the Number of Your Selection.");
+        System.out.println("[1] Customer View");
+        System.out.println("[2] Manager View");
+        
+        String Password = "Boutique";
+        
+        int MenuSelection = scnr.nextInt();
+        
+        if(MenuSelection = 1) {
+        	
+        }
+        if (MenuSlection = 2) {
+        	System.out.println("Please Enter the Password")
+        	
+        }
+        	
+        
         
     }
 }

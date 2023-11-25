@@ -5,6 +5,8 @@ public class Boutique {
     private HashSet<Product> products;
     private ArrayList<FeaturedProduct> featuredProducts;
     private Supplier[] suppliers;
+    
+    
 
     public Boutique() {
         products = new HashSet<>();
@@ -49,6 +51,7 @@ public class Boutique {
     for (Product product : products) {
         Checkout.Selections(product.getName(), product.getPrice());
         }
+    
     
     
 }
