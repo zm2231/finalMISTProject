@@ -16,9 +16,11 @@ public class Boutique {
     }
 
     private void initializeSuppliers() {
-        suppliers = new Supplier[] ("Flirt", "Georgia", "404-982-7654");
-        suppliers = new Supplier[] ("Beauty Babes", "Florida", "901-879-0342");
-        suppliers = new Supplier[] ("Party Girl Prom", "Alabama", "860-123-6754");
+        Supplier[] suppliers = new Supplier[] {
+                new Supplier[]("Flirt", "Georgia", "404-982-7654"),
+                new Supplier[] ("Beauty Babes", "Florida", "901-879-0342"),
+                new Supplier[] ("Party Girl Prom", "Alabama", "860-123-6754")
+        };
     }
 
     private void initializeProducts() {
