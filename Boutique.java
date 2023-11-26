@@ -16,10 +16,10 @@ public class Boutique {
     }
 
     private void initializeSuppliers() {
-        Supplier[] suppliers = new Supplier[] {
-                new Supplier[]("Flirt", "Georgia", "404-982-7654"),
-                new Supplier[] ("Beauty Babes", "Florida", "901-879-0342"),
-                new Supplier[] ("Party Girl Prom", "Alabama", "860-123-6754")
+        suppliers = new Supplier[] {
+                new Supplier("Flirt", "Georgia", "404-982-7654"),
+                new Supplier("Beauty Babes", "Florida", "901-879-0342"),
+                new Supplier("Party Girl Prom", "Alabama", "860-123-6754")
         };
     }
 
@@ -49,10 +49,12 @@ public class Boutique {
     public Supplier[] getSuppliers() {
         return suppliers;
     }
-    
-    for (Product product : products) {
-        Checkout.Selections(product.getName(), product.getPrice());
+
+    public void addProductsToCheckout {
+        for (Product product : products) {
+            Checkout.Selections(product.getName(), product.getPrice());
         }
+    }
     
     
     

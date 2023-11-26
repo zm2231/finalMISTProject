@@ -3,16 +3,27 @@ import java.util.Scanner;
 import java.util.HashMap;
 public class Checkout {
 
-private HashSet<String> Checkout = new HashSet<String>();	
-private static HashMap<String,Double> TodayProducts = new HashMap<String, Double>();	
+private HashSet<String> Checkout = new HashSet<String>();
+private static HashMap<String,Double> TodayProducts = new HashMap<String,Double>();
 
-private int i;
 private double totalCost;
-private String MemberID;
-private boolean IsMember;
+private User user;
+private String memberID;
 
+
+
+public Checkout(User user) {
+	this.user = user;
+	this.cartItems = new HashSet<>();
+	this.itemPrices = new HashMap<>();
+}
+
+public void addItemsToCart (Product product) {
+	checkoutItems.add(product.getName().toLowerCase());
+	todayProducts.put(product.getName(), product.applyDiscount(user));
+	}
 public static void Selections(String id, Double price) {
-	TodayProducts.put(id, price);
+	todayProducts.put(id, price);
 }
 
 	public void addCart(Scanner scnr) {
@@ -21,13 +32,15 @@ public static void Selections(String id, Double price) {
 		String check = " ";
 		
 	while(!check.equals("done")) {
-		
-		for(String name : TodayProducts.keySet()) {
-			String LowerCaseProducts = name.toLowerCase();
-			if(LowerCaseProducts.equals(key)) {
+
+		for(String name : todayProducts.keySet()) {
+			String lowerCaseProducts = name.toLowerCase();
+			if(lowerCaseProducts.equals(key)) {
 				Checkout.add(key);
 				System.out.println("Sucuessfully Added: " + name);
 			}
+			key = scnr.nextLine();
+			check = key.toLowerCase();
 		}
 		
 		
@@ -37,25 +50,25 @@ public static void Selections(String id, Double price) {
 	}
 	
 	public void setMemberShip(String ID) {
-		MemberID = ID; 
+		memberID = ID;
 	}
 	
-	public void IsMember(Boolean Set) {
-		IsMember = Set;
+	public void isMember(Boolean set) {
+		isMember = set;
 	}
 	
 	public void printCart() {
-		for(String Products : TodayProducts.keySet()) {
+		for(String products : todayProducts.keySet()) {
 			
-			String Checker = Products.toLowerCase();
+			String Checker = products.toLowerCase();
 			
 			if(Checkout.contains(Checker)) {
-				System.out.println(Products + ": " + TodayProducts.get(Products));	
-				totalCost += TodayProducts.get(Products);
+				System.out.println(Products + ": " + todayProducts.get(products));
+				totalCost += todayProducts.get(products);
 		}
 	}
-		if(IsMember = true) {
-			totalCost = totalCost * (1-.15);
+		if(isMember = true) {
+			totalCost = totalCost * (1-.10);
 		}
 		System.out.println("Total Cost: " + totalCost);
 	}

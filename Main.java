@@ -6,35 +6,25 @@ import java.util.HashSet;
 
 public class Main {
 	public static void main(String [] args){
-		
+
 		Scanner scnr = new Scanner(System.in);
+        Boutique boutique = new Boutique();
 
-		Supplier[] suppliers = {
-                new Supplier("Flirt", "Georiga", "404-982-7654"),
-                new Supplier("Beauty Babes", "Florida", "901-879-0342"),
-                new Supplier("Party Girl Prom", "Alabama", "860-123-6754")
-        };
+        boutique.addFeaturedProduct("Don't Tell Mom");
 
-        products.add(new Product("Don't Tell Mom", "Flirt", 799.99));
-        products.add(new Product("Walk It Like You Talk It", "Beauty Babes", 550.99));
-        products.add(new Product("Spicy and Sexy", "Party Girl Prom", 699.99));
-        
-        ArrayList<FeaturedProduct> featuredProducts = new ArrayList<>();
-        FeaturedProduct.addFeaturedProduct(products, featuredProducts, "Don't Tell Mom");
-
-        for (Supplier supplier : suppliers) {
+        for (Supplier supplier : boutique.getSuppliers()) {
             System.out.println("Supplier: " + supplier.getName() +
                     ", Location: " + supplier.getLocation() +
                     ", Contact: " + supplier.getContact());
         }
 
-        for (FeaturedProduct product : featuredProducts) {
+        for (FeaturedProduct product : boutique.getFeaturedProducts()) {
             System.out.println("Product: " + product.getName() +
                     ", Supplier: " + product.getSupplier() +
                     ", Price: $" + product.getPrice());
         }
 
-        for (Product product : products) {
+        for (Product product : boutique.getProducts()) {
             System.out.println("Product Name: " + product.getName() +
                     ", Supplier: " + product.getSupplier() +
                     ", Price: $" + product.getPrice());
@@ -45,15 +35,23 @@ public class Main {
         System.out.println("[1] Customer View");
         System.out.println("[2] Manager View");
         
-        String Password = "Boutique";
+        String password = "Boutique";
         
-        int MenuSelection = scnr.nextInt();
+        int menuSelection = scnr.nextInt();
         
-        if(MenuSelection = 1) {
-        	
+        if(menuSelection = 1) {
+        	//Customer View Code
         }
-        if (MenuSlection = 2) {
-        	System.out.println("Please Enter the Password")
+        if (menuSelection = 2) {
+        	System.out.println("Please Enter the Password");
+            String inputPassword = scnr.next();
+            if (inputPassword.equals(password)) {
+            	Manager manager = new Manager(boutique);
+                //Manager code goes here
+            }
+            else {
+            	System.out.println("Incorrect Password");
+            }
         	
         }
         	
