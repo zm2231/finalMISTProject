@@ -44,3 +44,47 @@ public class Main {
         
     }
 }
+
+public class Manager {
+	private Hashset<Product> products;
+	private ArrayList<FeaturedProdcut> featuredProducts;
+	
+	public Manager(Hashset<Product> products, ArrayList<FeaturedProduct> featuredProducts) {
+		this.products = products;
+		this.featuredProducts = featuredProducts;
+	}
+	
+	public void changeFaturedProduct( String newFeaturedProductName) {
+		featuredProducts.clear();
+		FeaturedProduct.addFeaturedProduct(products, featuredProducts, newFeaturedProdcutName);
+	}
+	
+	public void changePrices(String productName, double newPrice) {
+		for (Product product : products) {
+			if(product.getName().equalsIgnoreCase(productName)) {
+				product.setPrice(newPrice);
+				break;
+			}
+		}
+	}
+	
+	public void orderFromSupplier(String supplierName, String productName, double price) {
+		Supplier supplier = findSupplierByName(supplierName);
+		if (supplier != null) {
+			products.add(new Product(productName, supplierName, price));
+			
+		}
+	}
+	
+	private Supplier findSupplierByName(String supplierName) {
+		for (Supplier supplier : suppliers) {
+			if (supplier.getName().equalsIgnoreCase(supplierName)) {
+				return supplier;
+			}
+		}
+		return null;
+	}
+	public boolean login (String username, String password) {
+		return false;
+	}
+}
