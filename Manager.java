@@ -60,4 +60,76 @@ public class Manager {
             System.out.println("Product added: " + productName);
         }
     }
+
+    public void managerMenu(Scanner scnr) {
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("\nManager Menu:");
+            System.out.println("1. List All Products");
+            System.out.println("2. Add New Product");
+            System.out.println("3. Remove Product");
+            System.out.println("4. List All Suppliers");
+            System.out.println("5. Get Supplier Phone Number");
+            System.out.println("6. Change Product Price");
+            System.out.println("7. Order From Supplier");
+            System.out.println("8. Exit");
+
+            System.out.println("What would you like to do? Enter the choice number: ");
+            int choice = scnr.nextInt();
+            scnr.nextLine();
+
+            switch (choice) {
+                case 1:
+                    listAllProducts();
+                    break;
+                case 2:
+                    System.out.println("Enter product name: ");
+                    String name = scnr.nextLine();
+                    System.out.println("Enter supplier name: ");
+                    String supplier = scnr.nextLine();
+                    System.out.println("Enter price: ");
+                    double price = scnr.nextDouble();
+                    addNewProduct(name, supplier, price);
+                    break;
+                case 3:
+                    System.out.println("Enter product name to remove: ");
+                    String productNameToRemove = scnr.nextLine();
+                    removeProduct(productNameToRemove);
+                    break;
+                case 4:
+                    listAllSuppliers();
+                    break;
+                case 5:
+                    System.out.println("Enter supplier name: ");
+                    String supplierName = scnr.nextLine();
+                    System.out.println("Phone number: " + getPhoneNumber(supplierName));
+                    break;
+                case 6:
+                    System.out.println("Enter product name: ");
+                    String productName = scnr.nextLine();
+                    System.out.println("Enter new price: ");
+                    double newPrice = scnr.nextDouble();
+                    changePrice(productName, newPrice);
+                    break;
+                case 7:
+                    System.out.println("Enter supplier name: ");
+                    String supplierForOrder = scnr.nextLine();
+                    System.out.println("Enter product name: ");
+                    String productForOrder = scnr.nextLine();
+                    System.out.println("Enter price: ");
+                    double orderPrice = scnr.nextDouble();
+                    orderFromSupplier(supplierForOrder, productForOrder, orderPrice);
+                    break;
+                case 8:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+            }
+
+        }
+    }
+
 }

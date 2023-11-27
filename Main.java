@@ -68,7 +68,7 @@ public class Main {
             String inputPassword = scnr.next();
             if (inputPassword.equals(password)) {
             	Manager manager = new Manager(boutique);
-                //Manager code goes here
+                manager.managerMenu(scnr);
             }
             else {
             	System.out.println("Incorrect Password");
