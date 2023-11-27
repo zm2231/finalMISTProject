@@ -5,14 +5,35 @@ public class Checkout {
 
 	private static HashSet<String> Checkout = new HashSet<String>();
 	private static HashMap<String,Double> TodayProducts = new HashMap<String, Double>();
+	private static HashMap<String,Double> originalPrices = new HashMap<String, Double>();
 
 	private int i;
 	private static double totalCost;
 	private static String MemberID;
 	private static boolean IsMember;
+	private double totalCost;
+	private String MemberID;
+	private boolean IsMember;
+
+	public Checkout(User user) {
+		this.user = user;
+		this.cartItems = new HashSet<>();
+		this.itemPrices = new HashMap<>();
+	}
+
+	public void addItemsToCart (Product product) {
+		Checkout.add(product.getName().toLowerCase());
+		TodayProducts.put(product.getName(), user.applyDiscount(product));
+	}
+
+	public void removeItemsFromCart (Product product) {
+		Checkout.remove(product.getName().toLowerCase());
+		TodayProducts.remove(product.getName());
+	}
 
 	public static void Selections(String id, Double price) {
 		TodayProducts.put(id, price);
+		originalProducts.put(id, price);
 	}
 
 	public static void addCart(Scanner scnr) {
@@ -44,8 +65,12 @@ public class Checkout {
 	public static void IsMember(Boolean Set) {
 		IsMember = Set;
 	}
-
+	
 	public static void printCart() {
+	public static double getOriginalPrice(String productName) {
+		return originalPrices.getOrDefault(productName, 0.0);
+	}
+	public void printCart() {
 		for(String Products : TodayProducts.keySet()) {
 
 			String Checker = Products.toLowerCase();
@@ -54,9 +79,6 @@ public class Checkout {
 				System.out.println(Products + ": " + TodayProducts.get(Products));
 				totalCost += TodayProducts.get(Products);
 			}
-		}
-		if(IsMember = true) {
-			totalCost = totalCost * (1-.10);
 		}
 		System.out.println("Total Cost: " + totalCost);
 	}

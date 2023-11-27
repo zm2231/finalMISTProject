@@ -5,15 +5,18 @@ public class Boutique {
     private HashSet<Product> products;
     private ArrayList<FeaturedProduct> featuredProducts;
     private Supplier[] suppliers;
+    private ArrayList<User> users;
     
     
 
     public Boutique() {
         products = new HashSet<>();
         featuredProducts = new ArrayList<>();
+        users = new ArrayList<>();
         initializeSuppliers();
         initializeProducts();
         addProductsToCheckout();
+        initializeUsers();
     }
 
     private void initializeSuppliers() {
@@ -28,6 +31,12 @@ public class Boutique {
         products.add(new Product("Don't Tell Mom", "Flirt", 799.99));
         products.add(new Product("Walk It Like You Talk It", "Beauty Babes", 550.99));
         products.add(new Product("Spicy and Sexy", "Party Girl Prom", 699.99));
+    }
+
+    public void initializeUsers() {
+        users.add(new User("user1", "password1", "user1@example.com", true));
+        users.add(new User("user2", "password2", "user2@example.com", false));
+        users.add(new User("user3", "password3", "user3@example.com", true, 2000, 5, 15));
     }
 
     public  void addFeaturedProduct(String productName) {
@@ -52,6 +61,11 @@ public class Boutique {
     }
 
     private void addProductsToCheckout() {
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void addProductsToCheckout() {
         for (Product product : products) {
             Checkout.Selections(product.getName(), product.getPrice());
         }
