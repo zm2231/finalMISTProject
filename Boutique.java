@@ -31,6 +31,7 @@ public class Boutique {
         products.add(new Product("Don't Tell Mom", "Flirt", 799.99));
         products.add(new Product("Walk It Like You Talk It", "Beauty Babes", 550.99));
         products.add(new Product("Spicy and Sexy", "Party Girl Prom", 699.99));
+        Checkout.setAllProducts(products);
     }
 
     public void initializeUsers() {
@@ -69,6 +70,24 @@ public class Boutique {
         for (Product product : products) {
             Checkout.Selections(product.getName(), product.getPrice());
         }
+    }
+
+    public static Product getProductsByName(String productName, HashSet<Product> products) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(productName)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public static Product getPriceByName(String productName, HashSet<Product> products) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(productName)) {
+                return product;
+            }
+        }
+        return -1;
     }
     
     

@@ -5,7 +5,7 @@ public class Checkout {
 
 	private static HashSet<String> Checkout = new HashSet<String>();
 	private static HashMap<String,Double> TodayProducts = new HashMap<String, Double>();
-	private static HashMap<String,Double> originalPrices = new HashMap<String, Double>();
+	private static HashSet<Product> allProducts;
 
 	private int i;
 	private static double totalCostofCart;
@@ -18,6 +18,9 @@ public class Checkout {
 
 	public Checkout(User user) {
 		this.user = user;
+	}
+	public static void setAllProducts(HashSet<Product> products) {
+		allProducts = products;
 	}
 	public void addItemsToCart (Product product) {
 		Checkout.add(product.getName().toLowerCase());
