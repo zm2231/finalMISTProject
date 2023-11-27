@@ -6,8 +6,7 @@ public class Boutique {
     private ArrayList<FeaturedProduct> featuredProducts;
     private Supplier[] suppliers;
     private ArrayList<User> users;
-    
-    
+
 
     public Boutique() {
         products = new HashSet<>();
@@ -39,7 +38,7 @@ public class Boutique {
         users.add(new User("user3", "password3", "user3@example.com", true, 2000, 5, 15));
     }
 
-    public  void addFeaturedProduct(String productName) {
+    public void addFeaturedProduct(String productName) {
         for (Product product : products) {
             if (product.getName().equalsIgnoreCase(productName)) {
                 featuredProducts.add(new FeaturedProduct(product.getName(), product.getSupplier(), product.getPrice()));
@@ -70,35 +69,38 @@ public class Boutique {
                 return product.getName();
             }
             else {
-            	return -1;
-            }
+                return "Product not found";
             }
         }
-    
+    }
+
 
     public static Product getPriceByName(String productName, HashSet<Product> products) {
         for (Product product : products) {
             if (product.getName().equalsIgnoreCase(productName)) {
                 return product.getPrice();
-            }
-            else { 
-            	return -1;
+            } else {
+                return -1;
             }
         }
     }
-    
-    public static Product getSupplierByName(String productName, HashSet<Product> products) {
+
+    public Supplier findSupplierByProductName(String productName) {
         for (Product product : products) {
             if (product.getName().equalsIgnoreCase(productName)) {
-                return product.getSupplier();
-            }
-            else {
-            	return -1;
-            }
+                String supplierName = product.getSupplier();
+                for (Supplier supplier : suppliers) {
+                    if (supplier.getName().equalsIgnoreCase(supplierName)) {
+                        return supplier;
+                    }
+                    else {
+                        return null;
+                    }
+                }
             }
         }
-        
     }
+}
     
     
     

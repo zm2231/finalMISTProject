@@ -51,7 +51,7 @@ public class Manager {
     }
 
     public void orderFromSupplier(String supplierName, String productName, double price) {
-        Supplier supplier = findSupplierByName(supplierName);
+        Supplier supplier = findSupplierByProductName(productName);
         if (supplier == null) {
             System.out.println("Supplier not found: " + supplierName);
         }
