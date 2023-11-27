@@ -5,14 +5,33 @@ public class Checkout {
 
 	private static HashSet<String> Checkout = new HashSet<String>();
 	private static HashMap<String,Double> TodayProducts = new HashMap<String, Double>();
+	private static HashMap<String,Double> originalPrices = new HashMap<String, Double>();
 
 	private int i;
 	private static double totalCost;
 	private static String MemberID;
 	private static boolean IsMember;
+	private double totalCost;
+	private String MemberID;
+	private boolean IsMember;
+
+	public Checkout(User user) {
+		this.user = user;
+		this.cartItems = new HashSet<>();
+		this.itemPrices = new HashMap<>();
+	}
+	public void addItemsToCart (Product product) {
+		Checkout.add(product.getName().toLowerCase());
+		TodayProducts.put(product.getName(), user.applyDiscount(product));
+	}
+	public void removeItemsFromCart (Product product) {
+		Checkout.remove(product.getName().toLowerCase());
+		TodayProducts.remove(product.getName());
+	}
 
 	public static void Selections(String id, Double price) {
 		TodayProducts.put(id, price);
+		originalProducts.put(id, price);
 	}
 
 	public static void addCart(Scanner scnr) {
@@ -29,10 +48,6 @@ public class Checkout {
 					Checkout.add(key);
 					System.out.println("Sucuessfully Added: " + name);
 				}
-				else {
-					System.out.println("This Didn't work remember to delete this");
-				}
-
 			}
 
 
