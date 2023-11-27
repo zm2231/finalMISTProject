@@ -61,15 +61,8 @@ public class Boutique {
         return suppliers;
     }
 
-    private void addProductsToCheckout() {
     public ArrayList<User> getUsers() {
         return users;
-    }
-
-    public void addProductsToCheckout() {
-        for (Product product : products) {
-            Checkout.Selections(product.getName(), product.getPrice());
-        }
     }
 
     public static Product getProductsByName(String productName, HashSet<Product> products) {

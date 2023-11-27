@@ -56,14 +56,14 @@ public class Main {
         	
         }
 
-        private static Checkout createCheckoutForUser(User user) {
+  /*      private static Checkout createCheckoutForUser(User user) {
             if (user.isMember()) {
                 return new CheckoutAsMember(user);
             }
             else {
                 return new Checkout(user);
             }
-        }
+        } */
         	
         
         
