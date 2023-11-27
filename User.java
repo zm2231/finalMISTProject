@@ -31,7 +31,7 @@ public class User {
         return isDOBSet && this.birthMonth == month && this.birthDay == day;
     }
 
-    public double applyDiscount(Product product) {
+    public double applyDiscount(double price) {
         double discount = 0.0;
         int currentMonth = 5;
         int currentDay = 15;
@@ -39,7 +39,7 @@ public class User {
         if (this.isMember) {
             discount += 0.10;
         }
-        if (isBirthday(currentYear, currentMonth, currentDay)) {
+        if (isBirthday(currentMonth, currentDay)) {
             discount += 0.05;
         }
         return product.getPrice() * (1 - discount);
