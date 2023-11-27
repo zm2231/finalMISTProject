@@ -59,7 +59,8 @@ public class Main {
                             ", Price: $" + product.getPrice());
                 }
                 
-                
+            Checkout.addCart(scnr); 
+            Checkout.printCart();
                 
             }
         }
