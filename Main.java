@@ -39,7 +39,7 @@ public class Main {
                 }
                 
             Checkout.addCart(scnr); 
-            Checkout.printCart();
+            Checkout.CalculateCart();
                 
             }
         }

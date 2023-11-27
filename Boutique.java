@@ -63,43 +63,6 @@ public class Boutique {
         return users;
     }
 
-    public static Product getProductsByName(String productName, HashSet<Product> products) {
-        for (Product product : products) {
-            if (product.getName().equalsIgnoreCase(productName)) {
-                return product.getName();
-            }
-            else {
-                return "Product not found";
-            }
-        }
-    }
-
-
-    public static Product getPriceByName(String productName, HashSet<Product> products) {
-        for (Product product : products) {
-            if (product.getName().equalsIgnoreCase(productName)) {
-                return product.getPrice();
-            } else {
-                return -1;
-            }
-        }
-    }
-
-    public Supplier findSupplierByProductName(String productName) {
-        for (Product product : products) {
-            if (product.getName().equalsIgnoreCase(productName)) {
-                String supplierName = product.getSupplier();
-                for (Supplier supplier : suppliers) {
-                    if (supplier.getName().equalsIgnoreCase(supplierName)) {
-                        return supplier;
-                    }
-                    else {
-                        return null;
-                    }
-                }
-            }
-        }
-    }
 }
     
     
