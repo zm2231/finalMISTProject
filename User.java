@@ -38,11 +38,7 @@ public class User {
     }
 
     public double applyDiscount(double price) {
-        double discount = 0.0;
-
-        if (this.isMember) {
-            discount += 0.10;
-        }
+        discount += 0.10;
         return price * (1 - discount);
     }
 
