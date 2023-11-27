@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Objects;
 public class Product {
     private String name;
     private String supplier;
