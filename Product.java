@@ -27,21 +27,6 @@ public class Product {
     }
 
     @Override
-    public double applyDiscount(User user) {
-        double discount = 0.0;
-        int currentMonth = 5;
-        int currentDay = 15;
-
-        if (user.isMember()) {
-            discount += 0.10;
-        }
-        if (user.getBirthMonth() == currentMonth && user.getBirthDay() == currentDay) {
-            discount += 0.05;
-        }
-        return this.price * (1 - discount);
-    }
-
-    @Override
     public boolean equals(Object o) {
         boolean isEqual = false;
         if (this == o) {
