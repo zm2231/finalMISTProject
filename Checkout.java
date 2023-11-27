@@ -80,7 +80,15 @@ public class Checkout {
 				totalCost += TodayProducts.get(Products);
 			}
 		}
-		System.out.println("Total Cost: " + totalCost);
+		if(IsMember = true) {
+			Double finalCost = totalCost * (1-.10);
+			Double savedAmount = totalCost * (0.10);
+			System.out.println("Adjusted Cost: " + finalCost);
+			System.out.println("Here's What You Saved by Being A Member" + savedAmount);
+		}
+		else{
+			System.out.println("Total Cost: " + totalCost);
+		}
 	}
 
 }
