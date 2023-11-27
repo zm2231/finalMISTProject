@@ -22,16 +22,24 @@ public class Main {
         int menuSelection = scnr.nextInt();
         
         if(menuSelection == 1) {
-        
-        	System.out.println("Please Enter Your Member ID");
-            String inputMemberID = scnr.next();
-            //implmennt member ID check
+
+            System.out.println("Are you a member? (Y/N)");
+            Character inputMember = scnr.next().charAt(0);
+            if (inputMember == 'Y'|| inputMember == 'y') {
+                System.out.println("Please Enter Your Member ID");
+                String inputMemberID = scnr.next();
+                if isMembershipValid(inputMemberID) {
+                    System.out.println("Welcome Back" !);
+                }
+            }
+                else {
+                	System.out.println("Invalid Member ID");
+
+                }
             boutique.printProducts();
                 
             Checkout.addCart(scnr); 
             Checkout.CalculateCart();
-                
-            }
         }
         if (menuSelection == 2) {
         	System.out.println("Please Enter the Password");
@@ -45,15 +53,6 @@ public class Main {
             }
         	
         }
-
-  /*      private static Checkout createCheckoutForUser(User user) {
-            if (user.isMember()) {
-                return new CheckoutAsMember(user);
-            }
-            else {
-                return new Checkout(user);
-            }
-        } */
         	
         
         
