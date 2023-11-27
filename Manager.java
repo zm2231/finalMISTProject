@@ -49,4 +49,26 @@ public class Manager {
             System.out.println(product.getName() + " - $" + product.getPrice());
         }
     }
+
+    public void changePrices(String productName, double newPrice) {
+        for (Product product : boutique.getProducts()) {
+            if (product.getName().equalsIgnoreCase(productName)) {
+                product.setPrice(newPrice);
+                System.out.println("Updated price of " + productName + " to $" + newPrice);
+                return;
+            }
+        }
+        System.out.println("Product not found: " + productName);
+    }
+
+    public void orderFromSupplier(String supplierName, String productName, double price) {
+        Supplier supplier = findSupplierByName(supplierName);
+        if (supplier == null) {
+            System.out.println("Supplier not found: " + supplierName);
+        }
+        else {
+            boutique.getProducts().add(new Product(productName, supplierName, price));
+            System.out.println("Product added: " + productName);
+        }
+    }
 }
