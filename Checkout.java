@@ -27,8 +27,10 @@ public class Checkout {
 			if (product.getName().equalsIgnoreCase(productName)) {
 				return product;
 			}
+			else {
+				return null;
+			}
 		}
-		return null;
 	}
 	public void addItemsToCart (Product product) {
 		Checkout.add(product.getName().toLowerCase());

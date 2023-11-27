@@ -77,8 +77,11 @@ public class Boutique {
             if (product.getName().equalsIgnoreCase(productName)) {
                 return product;
             }
+            else {
+            	return -1;
+            }
+            }
         }
-        return null;
     }
 
     public static Product getPriceByName(String productName, HashSet<Product> products) {
@@ -86,8 +89,10 @@ public class Boutique {
             if (product.getName().equalsIgnoreCase(productName)) {
                 return product;
             }
+            else { 
+            	return -1;
+            }
         }
-        return -1;
     }
     
     public static Product getSupplierByName(String productName, HashSet<Product> products) {
@@ -95,8 +100,12 @@ public class Boutique {
             if (product.getName().equalsIgnoreCase(productName)) {
                 return product;
             }
+            else {
+            	return -1;
+            }
+            }
         }
-        return -1;
+        
     }
     
     
