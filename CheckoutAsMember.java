@@ -3,6 +3,10 @@ import java.util.Scanner;
 import java.util.HashMap;
 public class CheckoutAsMember extends Checkout {
 
+	public CheckoutAsMember(User user) {
+		super(user);
+	}
+
 	@Override
 	public void printCart() {
 		super.printCart();
