@@ -6,7 +6,6 @@ public class Boutique {
     private ArrayList<FeaturedProduct> featuredProducts;
     private Supplier[] suppliers;
     private ArrayList<User> users;
-    addProductsToCheckout();
 
 
     public Boutique() {
@@ -16,6 +15,7 @@ public class Boutique {
         initializeSuppliers();
         initializeProducts();
         initializeUsers();
+        addProductsToCheckout();
     }
 
     private void initializeSuppliers() {
@@ -43,6 +43,7 @@ public class Boutique {
         for (Product product : products) {
             if (product.getName().equalsIgnoreCase(productName)) {
                 featuredProducts.add(new FeaturedProduct(product.getName(), product.getSupplier(), product.getPrice()));
+                
                 break;
             }
         }
@@ -63,14 +64,14 @@ public class Boutique {
     public ArrayList<User> getUsers() {
         return users;
     }
-    
     private void addProductsToCheckout() {
         for (Product product : products) {
             Checkout.Selections(product.getName(), product.getPrice());
         }
     }
 
-   }
+        }
+	
     
     
     

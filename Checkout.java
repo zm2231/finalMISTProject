@@ -15,7 +15,7 @@ public class Checkout {
 	private String MemberID;
 	private boolean IsMember;
 	private User user;
-
+	
 	public Checkout(User user) {
 		this.user = user;
 	}
@@ -46,24 +46,38 @@ public class Checkout {
 		String addition = scnr.nextLine();
 		String key = addition.toLowerCase();
 		String check = key;
-
-		System.out.println(key); 
+		Boolean MultipleOrders;
+		
+		System.out.println();
+		System.out.println("For the Sake of Inventory Please Only Order One");
+		System.out.println("Please Type \"Done\" When You Are Finished "); 
 		while(!check.equals("done")) {
-			Product product = getProductByName(key);
-			if(product != null) {
-				addItemsToCart(product);
-				System.out.println("Sucuessfully Added: " + product);
+			for(String name : TodayProducts.keySet()) {
+				String LowerCaseProducts = name.toLowerCase();
+				if(LowerCaseProducts.equals(key)) {
+					MultipleOrders = Checkout.add(key);
+					Checkout.add(key);
+					if(!MultipleOrders){
+						System.out.println();
+						System.out.println("No Duplicate Orders");
+						System.out.println("Please Select Another Item");
+						System.out.println();
+						break;
+					}
+					else{
+						System.out.println("Sucuessfully Added: " + name);
+						break;
+					}
+				}
+				
+				
+				
 			}
-			else {
-				System.out.println("Product not found: " + addition);
-			}
-			}
-
-
 			addition = scnr.nextLine();
 			key = addition.toLowerCase();
 			check = key;
 		}
+	}
 	public static void CalculateCart() {
 		for(String Products : TodayProducts.keySet()) {
 

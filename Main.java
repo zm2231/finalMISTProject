@@ -24,18 +24,10 @@ public class Main {
         if(menuSelection == 1) {
 
             System.out.println("Are you a member? (Y/N)");
-            Character inputMember = scnr.next().charAt(0);
-            if (inputMember == 'Y'|| inputMember == 'y') {
-                System.out.println("Please Enter Your Member ID");
-                String inputMemberID = scnr.next();
-                if isMembershipValid(inputMemberID) {
-                    System.out.println("Welcome Back" !);
-                }
-            }
-                else {
-                	System.out.println("Invalid Member ID");
-
-                }
+            
+ 
+            System.out.println();
+            System.out.println("Featured Product of the Day");
             for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
                 System.out.println("Product: " + featuredProduct.getName() +
                         ", Supplier: " + featuredProduct.getSupplier() +
@@ -46,14 +38,19 @@ public class Main {
            
                 System.out.println();
                 System.out.println("Products of the Day: ");
-                for (Product product : boutique.getProducts()) {
                 
+                ArrayList<FeaturedProduct> checker = boutique.getFeaturedProducts();
+                checker.
+                for (Product product : boutique.getProducts()) {
+                	System.out.println(checker.contains());
                     System.out.println("Product Name: " + product.getName() +
                             ", Supplier: " + product.getSupplier() +
                             ", Price: $" + product.getPrice());
                 
-            Checkout.addCart(scnr); 
-            Checkout.CalculateCart();
+          
+        }
+                Checkout.addCart(scnr); 
+                Checkout.CalculateCart();
         }
         if (menuSelection == 2) {
         	System.out.println("Please Enter the Password");
@@ -70,5 +67,7 @@ public class Main {
         	
         
         
-    }
+    
+
+}
 }
