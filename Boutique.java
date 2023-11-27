@@ -6,6 +6,7 @@ public class Boutique {
     private ArrayList<FeaturedProduct> featuredProducts;
     private Supplier[] suppliers;
     private ArrayList<User> users;
+    addProductsToCheckout();
 
 
     public Boutique() {
@@ -62,24 +63,14 @@ public class Boutique {
     public ArrayList<User> getUsers() {
         return users;
     }
-
-    public void printProducts() {
-        System.out.println("Featured Products of the Day: ");
-        for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
-            System.out.println("Product: " + featuredProduct.getName() +
-                    ", Supplier: " + featuredProduct.getSupplier() +
-                    ", Price: $" + featuredProduct.getPrice() +
-                    ", Featured: " + featuredProduct.isFeatured());
-        }
-            System.out.println();
-            System.out.println("Products of the Day: ");
-            for (Product product : boutique.getProducts()) {
-                System.out.println("Product Name: " + product.getName() +
-                        ", Supplier: " + product.getSupplier() +
-                        ", Price: $" + product.getPrice());
-            }
+    
+    private void addProductsToCheckout() {
+        for (Product product : products) {
+            Checkout.Selections(product.getName(), product.getPrice());
         }
     }
+
+   }
     
     
     

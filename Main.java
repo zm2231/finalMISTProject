@@ -36,7 +36,21 @@ public class Main {
                 	System.out.println("Invalid Member ID");
 
                 }
-            boutique.printProducts();
+            for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
+                System.out.println("Product: " + featuredProduct.getName() +
+                        ", Supplier: " + featuredProduct.getSupplier() +
+                        ", Price: $" + featuredProduct.getPrice() +
+                        ", Featured: " + featuredProduct.isFeatured());
+            }
+            
+           
+                System.out.println();
+                System.out.println("Products of the Day: ");
+                for (Product product : boutique.getProducts()) {
+                
+                    System.out.println("Product Name: " + product.getName() +
+                            ", Supplier: " + product.getSupplier() +
+                            ", Price: $" + product.getPrice());
                 
             Checkout.addCart(scnr); 
             Checkout.CalculateCart();
