@@ -12,25 +12,11 @@ public class Main {
 
         boutique.addFeaturedProduct("Don't Tell Mom");
 
-        //Printing the featured products
-        System.out.println("Featured Products:");
-        for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
-            System.out.println("Product: " + featuredProduct.getName() +
-                    ", Supplier: " + featuredProduct.getSupplier() +
-                    ", Price: $" + featuredProduct.getPrice() +
-                    ", Featured: " + featuredProduct.isFeatured());
-        }
         
         for (Supplier supplier : boutique.getSuppliers()) {
             System.out.println("Supplier: " + supplier.getName() +
                     ", Location: " + supplier.getLocation() +
                     ", Contact: " + supplier.getContact());
-        }
-
-        for (FeaturedProduct product : boutique.getFeaturedProducts()) {
-            System.out.println("Product: " + product.getName() +
-                    ", Supplier: " + product.getSupplier() +
-                    ", Price: $" + product.getPrice());
         }
 
         for (Product product : boutique.getProducts()) {
@@ -49,6 +35,7 @@ public class Main {
         int menuSelection = scnr.nextInt();
         
         if(menuSelection == 1) {
+
             //Retreieve user from boutique
             User user1 = boutique.getUsers().get(0);
             //Checkout instance
@@ -56,6 +43,25 @@ public class Main {
             //Select products to go in cart here
             checkout.addItemstoCart(new Product("Don't Tell Mom", "Flirt", 799.99));
             checkout.printCart();
+        	
+        
+        	System.out.println("Featured Products of the Day: ");
+            for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
+                System.out.println("Product: " + featuredProduct.getName() +
+                        ", Supplier: " + featuredProduct.getSupplier() +
+                        ", Price: $" + featuredProduct.getPrice() +
+                        ", Featured: " + featuredProduct.isFeatured());
+            
+            System.out.println("Products of the Day: ");
+            for (Product product : boutique.getProducts()) {
+                    System.out.println("Product Name: " + product.getName() +
+                            ", Supplier: " + product.getSupplier() +
+                            ", Price: $" + product.getPrice());
+                }
+                
+                
+                
+            }
         }
         if (menuSelection == 2) {
         	System.out.println("Please Enter the Password");
