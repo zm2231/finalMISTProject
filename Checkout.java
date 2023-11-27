@@ -27,14 +27,11 @@ public class Checkout {
 			if (product.getName().equalsIgnoreCase(productName)) {
 				return product;
 			}
-			else {
-				return null;
-			}
 		}
+		return null;
 	}
-	public void addItemsToCart (Product product) {
+	public static void addItemsToCart (Product product) {
 		Checkout.add(product.getName().toLowerCase());
-		TodayProducts.put(product.getName(), user.applyDiscount(product));
 	}
 	public void removeItemsFromCart (Product product) {
 		Checkout.remove(product.getName().toLowerCase());
@@ -55,20 +52,19 @@ public class Checkout {
 			Product product = getProductByName(key);
 			if(product != null) {
 				addItemsToCart(product);
-				System.out.println("Sucuessfully Added: " + name);
+				System.out.println("Sucuessfully Added: " + product);
 			}
 			else {
-				System.out.println("Product not found: " + key);
+				System.out.println("Product not found: " + addition);
 			}
 			}
 
 
 			addition = scnr.nextLine();
-			System.out.println(addition);
 			key = addition.toLowerCase();
 			check = key;
 		}
-	public static void printCart() {
+	public static void CalculateCart() {
 		for(String Products : TodayProducts.keySet()) {
 
 			String Checker = Products.toLowerCase();
@@ -79,7 +75,8 @@ public class Checkout {
 			}
 		}
 		
-		//Input Final Cost Calculations
+	}
+	public static void printCartPrice() {
 		
 	}
 

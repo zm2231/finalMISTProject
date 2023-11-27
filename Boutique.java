@@ -75,7 +75,7 @@ public class Boutique {
             }
             }
         }
-    }
+    
 
     public static Product getPriceByName(String productName, HashSet<Product> products) {
         for (Product product : products) {
@@ -103,4 +103,3 @@ public class Boutique {
     
     
     
-}

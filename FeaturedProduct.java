@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 public class FeaturedProduct extends Product {
     public boolean isFeatured;
     public FeaturedProduct(String name, String supplier, double price) {
