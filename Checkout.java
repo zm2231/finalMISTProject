@@ -8,17 +8,16 @@ public class Checkout {
 	private static HashMap<String,Double> originalPrices = new HashMap<String, Double>();
 
 	private int i;
-	private static double totalCost;
-	private static String MemberID;
-	private static boolean IsMember;
+	private static double totalCostofCart;
+	private static String MemberIDofCart;
+	private static boolean IsMemberofCart;
 	private double totalCost;
 	private String MemberID;
 	private boolean IsMember;
+	private String user;
 
 	public Checkout(User user) {
 		this.user = user;
-		this.cartItems = new HashSet<>();
-		this.itemPrices = new HashMap<>();
 	}
 	public void addItemsToCart (Product product) {
 		Checkout.add(product.getName().toLowerCase());
@@ -31,7 +30,6 @@ public class Checkout {
 
 	public static void Selections(String id, Double price) {
 		TodayProducts.put(id, price);
-		originalProducts.put(id, price);
 	}
 
 	public static void addCart(Scanner scnr) {
@@ -57,15 +55,6 @@ public class Checkout {
 			check = key;
 		}
 	}
-
-	public static void setMemberShip(String ID) {
-		MemberID = ID;
-	}
-
-	public static void IsMember(Boolean Set) {
-		IsMember = Set;
-	}
-
 	public static void printCart() {
 		for(String Products : TodayProducts.keySet()) {
 
@@ -73,24 +62,12 @@ public class Checkout {
 
 			if(Checkout.contains(Checker)) {
 				System.out.println(Products + ": " + TodayProducts.get(Products));
-				totalCost += TodayProducts.get(Products);
+				totalCostofCart += TodayProducts.get(Products);
 			}
 		}
 		
-		if(IsMember = true) {
-			
-			Double finalCost = totalCost * (1-.10);
-			Double savedAmount = totalCost * (0.10);
-			finalCost = (double)Math.round(finalCost*100)/100;
-			savedAmount = (double)Math.round(savedAmount*100)/100;
-			
-			System.out.println("Adjusted Cost: " + finalCost);
-			System.out.println("Here's What You Saved by Being A Member" + savedAmount);
-		}
-		else{
-			totalCost = (double)Math.round(totalCost*100)/100;
-			System.out.println("Total Cost: " + totalCost);
-		}
+		//Input Final Cost Calculations
+		
 	}
 
 }
