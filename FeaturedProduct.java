@@ -20,5 +20,14 @@ public class FeaturedProduct extends Product {
             }
         }
     }
+
+    public static void removeFeaturedProduct(ArrayList<FeaturedProduct> featuredProducts, String productName) {
+        for (FeaturedProduct product : featuredProducts) {
+            if (product.getName().equalsIgnoreCase(productName)) {
+                featuredProducts.remove(product);
+                break;
+            }
+        }
+    }
     
 }

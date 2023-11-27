@@ -27,17 +27,6 @@ public class Manager {
         System.out.println("Product removed: " + productName);
     }
 
-    public void updateProductPrice(String productName, double newPrice) {
-        for (Product product : boutique.getProducts()) {
-            if (product.getName().equalsIgnoreCase(productName)) {
-                product.setPrice(newPrice);
-                System.out.println("Updated price of " + productName + " to $" + newPrice);
-                return;
-            }
-        }
-        System.out.println("Product not found: " + productName);
-    }
-
     public void listAllSuppliers() {
         for (Supplier supplier : boutique.getSuppliers()) {
             System.out.println(supplier.getName() + " - " + supplier.getLocation() + " - " + supplier.getContact());
@@ -50,7 +39,7 @@ public class Manager {
         }
     }
 
-    public void changePrices(String productName, double newPrice) {
+    public void changePrice(String productName, double newPrice) {
         for (Product product : boutique.getProducts()) {
             if (product.getName().equalsIgnoreCase(productName)) {
                 product.setPrice(newPrice);

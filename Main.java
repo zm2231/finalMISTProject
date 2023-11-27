@@ -48,10 +48,16 @@ public class Main {
         
         int menuSelection = scnr.nextInt();
         
-        if(menuSelection = 1) {
-        	//Customer View Code
+        if(menuSelection == 1) {
+            //Retreieve user from boutique
+            User user1 = boutique.getUsers().get(0);
+            //Checkout instance
+            Checkout checkout = createCheckoutForUser(user);
+            //Select products to go in cart here
+            checkout.addItemstoCart(new Product("Don't Tell Mom", "Flirt", 799.99));
+            checkout.printCart();
         }
-        if (menuSelection = 2) {
+        if (menuSelection == 2) {
         	System.out.println("Please Enter the Password");
             String inputPassword = scnr.next();
             if (inputPassword.equals(password)) {
@@ -62,6 +68,15 @@ public class Main {
             	System.out.println("Incorrect Password");
             }
         	
+        }
+
+        private static Checkout createCheckoutForUser(User user) {
+            if (user.isMember()) {
+                return new CheckoutAsMember(user);
+            }
+            else {
+                return new Checkout(user);
+            }
         }
         	
         
