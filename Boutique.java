@@ -13,6 +13,7 @@ public class Boutique {
         featuredProducts = new ArrayList<>();
         initializeSuppliers();
         initializeProducts();
+        addProductsToCheckout();
     }
 
     private void initializeSuppliers() {
@@ -50,7 +51,7 @@ public class Boutique {
         return suppliers;
     }
 
-    public void addProductsToCheckout {
+    private void addProductsToCheckout() {
         for (Product product : products) {
             Checkout.Selections(product.getName(), product.getPrice());
         }
