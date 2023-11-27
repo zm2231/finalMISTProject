@@ -12,6 +12,15 @@ public class Main {
 
         boutique.addFeaturedProduct("Don't Tell Mom");
 
+        //Printing the featured products
+        System.out.println("Featured Products:");
+        for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
+            System.out.println("Product: " + featuredProduct.getName() +
+                    ", Supplier: " + featuredProduct.getSupplier() +
+                    ", Price: $" + featuredProduct.getPrice() +
+                    ", Featured: " + featuredProduct.isFeatured());
+        }
+        
         for (Supplier supplier : boutique.getSuppliers()) {
             System.out.println("Supplier: " + supplier.getName() +
                     ", Location: " + supplier.getLocation() +
