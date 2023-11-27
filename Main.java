@@ -12,25 +12,11 @@ public class Main {
 
         boutique.addFeaturedProduct("Don't Tell Mom");
 
-        //Printing the featured products
-        System.out.println("Featured Products:");
-        for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
-            System.out.println("Product: " + featuredProduct.getName() +
-                    ", Supplier: " + featuredProduct.getSupplier() +
-                    ", Price: $" + featuredProduct.getPrice() +
-                    ", Featured: " + featuredProduct.isFeatured());
-        }
         
         for (Supplier supplier : boutique.getSuppliers()) {
             System.out.println("Supplier: " + supplier.getName() +
                     ", Location: " + supplier.getLocation() +
                     ", Contact: " + supplier.getContact());
-        }
-
-        for (FeaturedProduct product : boutique.getFeaturedProducts()) {
-            System.out.println("Product: " + product.getName() +
-                    ", Supplier: " + product.getSupplier() +
-                    ", Price: $" + product.getPrice());
         }
 
         for (Product product : boutique.getProducts()) {
@@ -48,10 +34,28 @@ public class Main {
         
         int menuSelection = scnr.nextInt();
         
-        if(menuSelection = 1) {
-        	//Customer View Code
+        if(menuSelection == 1) {
+        	
+        
+        	System.out.println("Featured Products of the Day: ");
+            for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
+                System.out.println("Product: " + featuredProduct.getName() +
+                        ", Supplier: " + featuredProduct.getSupplier() +
+                        ", Price: $" + featuredProduct.getPrice() +
+                        ", Featured: " + featuredProduct.isFeatured());
+            
+            System.out.println("Products of the Day: ");
+            for (Product product : boutique.getProducts()) {
+                    System.out.println("Product Name: " + product.getName() +
+                            ", Supplier: " + product.getSupplier() +
+                            ", Price: $" + product.getPrice());
+                }
+                
+                
+                
+            }
         }
-        if (menuSelection = 2) {
+        if (menuSelection == 2) {
         	System.out.println("Please Enter the Password");
             String inputPassword = scnr.next();
             if (inputPassword.equals(password)) {
