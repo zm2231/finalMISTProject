@@ -22,6 +22,14 @@ public class Checkout {
 	public static void setAllProducts(HashSet<Product> products) {
 		allProducts = products;
 	}
+	public static Product getProductByName(String productName) {
+		for (Product product : allProducts) {
+			if (product.getName().equalsIgnoreCase(productName)) {
+				return product;
+			}
+		}
+		return null;
+	}
 	public void addItemsToCart (Product product) {
 		Checkout.add(product.getName().toLowerCase());
 		TodayProducts.put(product.getName(), user.applyDiscount(product));
@@ -42,13 +50,14 @@ public class Checkout {
 
 		System.out.println(key); 
 		while(!check.equals("done")) {
-
-			for(String name : TodayProducts.keySet()) {
-				String LowerCaseProducts = name.toLowerCase();
-				if(LowerCaseProducts.equals(key)) {
-					Checkout.add(key);
-					System.out.println("Sucuessfully Added: " + name);
-				}
+			Product product = getProductByName(key);
+			if(product != null) {
+				addItemsToCart(product);
+				System.out.println("Sucuessfully Added: " + name);
+			}
+			else {
+				System.out.println("Product not found: " + key);
+			}
 			}
 
 
@@ -57,7 +66,6 @@ public class Checkout {
 			key = addition.toLowerCase();
 			check = key;
 		}
-	}
 	public static void printCart() {
 		for(String Products : TodayProducts.keySet()) {
 

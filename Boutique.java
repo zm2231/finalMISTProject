@@ -90,6 +90,15 @@ public class Boutique {
         return -1;
     }
     
+    public static Product getSupplierByName(String productName, HashSet<Product> products) {
+        for (Product product : products) {
+            if (product.getName().equalsIgnoreCase(productName)) {
+                return product;
+            }
+        }
+        return -1;
+    }
+    
     
     
 }
