@@ -14,7 +14,7 @@ public class Checkout {
 	private double totalCost;
 	private String MemberID;
 	private boolean IsMember;
-	private String user;
+	private User user;
 
 	public Checkout(User user) {
 		this.user = user;
@@ -25,7 +25,7 @@ public class Checkout {
 	public static Product getProductByName(String productName) {
 		for (Product product : allProducts) {
 			if (product.getName().equalsIgnoreCase(productName)) {
-				return product.getName();
+				return product;
 			}
 		}
 		return null;
@@ -76,8 +76,8 @@ public class Checkout {
 		}
 		
 	}
-	public static void printCartPrice() {
-		
+	public static void printCart() {
+		System.out.println("Total Price: " + totalCostofCart);
 	}
 
 }

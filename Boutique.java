@@ -15,7 +15,6 @@ public class Boutique {
         users = new ArrayList<>();
         initializeSuppliers();
         initializeProducts();
-        addProductsToCheckout();
         initializeUsers();
     }
 
