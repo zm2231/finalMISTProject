@@ -11,19 +11,6 @@ public class Main {
         Boutique boutique = new Boutique();
 
         boutique.addFeaturedProduct("Don't Tell Mom");
-
-        
-        for (Supplier supplier : boutique.getSuppliers()) {
-            System.out.println("Supplier: " + supplier.getName() +
-                    ", Location: " + supplier.getLocation() +
-                    ", Contact: " + supplier.getContact());
-        }
-
-        for (Product product : boutique.getProducts()) {
-            System.out.println("Product Name: " + product.getName() +
-                    ", Supplier: " + product.getSupplier() +
-                    ", Price: $" + product.getPrice());
-        }
         
          		
         System.out.println("Please Type the Number of Your Selection.");
@@ -35,15 +22,6 @@ public class Main {
         int menuSelection = scnr.nextInt();
         
         if(menuSelection == 1) {
-
-            //Retreieve user from boutique
-            User user1 = boutique.getUsers().get(0);
-            //Checkout instance
-            Checkout checkout = createCheckoutForUser(user);
-            //Select products to go in cart here
-            checkout.addItemstoCart(new Product("Don't Tell Mom", "Flirt", 799.99));
-            checkout.printCart();
-        	
         
         	System.out.println("Featured Products of the Day: ");
             for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
@@ -52,6 +30,7 @@ public class Main {
                         ", Price: $" + featuredProduct.getPrice() +
                         ", Featured: " + featuredProduct.isFeatured());
             
+            System.out.println();    
             System.out.println("Products of the Day: ");
             for (Product product : boutique.getProducts()) {
                     System.out.println("Product Name: " + product.getName() +

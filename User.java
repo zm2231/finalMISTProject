@@ -42,7 +42,7 @@ public class User {
         if (isBirthday(currentMonth, currentDay)) {
             discount += 0.05;
         }
-        return product.getPrice() * (1 - discount);
+        return price * (1 - discount);
     }
 
     public boolean isMember() {

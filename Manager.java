@@ -1,5 +1,5 @@
 import java.util.HashSet;
-
+import java.util.Scanner;
 public class Manager {
 
     private Boutique boutique;
@@ -132,4 +132,4 @@ public class Manager {
         }
     }
 
-}
+
