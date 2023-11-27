@@ -23,20 +23,10 @@ public class Main {
         
         if(menuSelection == 1) {
         
-        	System.out.println("Featured Products of the Day: ");
-            for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
-                System.out.println("Product: " + featuredProduct.getName() +
-                        ", Supplier: " + featuredProduct.getSupplier() +
-                        ", Price: $" + featuredProduct.getPrice() +
-                        ", Featured: " + featuredProduct.isFeatured());
-            
-            System.out.println();    
-            System.out.println("Products of the Day: ");
-            for (Product product : boutique.getProducts()) {
-                    System.out.println("Product Name: " + product.getName() +
-                            ", Supplier: " + product.getSupplier() +
-                            ", Price: $" + product.getPrice());
-                }
+        	System.out.println("Please Enter Your Member ID");
+            String inputMemberID = scnr.next();
+            //implmennt member ID check
+            boutique.printProducts();
                 
             Checkout.addCart(scnr); 
             Checkout.CalculateCart();
