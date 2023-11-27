@@ -25,7 +25,7 @@ public class Checkout {
 	public static Product getProductByName(String productName) {
 		for (Product product : allProducts) {
 			if (product.getName().equalsIgnoreCase(productName)) {
-				return product;
+				return product.getName();
 			}
 		}
 		return null;
