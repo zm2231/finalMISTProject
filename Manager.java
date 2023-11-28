@@ -61,18 +61,17 @@ public class Manager {
         }
     }
 
-    public void managerMenu(Scanner scnr) {
+    public boolean managerMenu(Scanner scnr) {
         boolean exit = false;
         while (!exit) {
             System.out.println("\nManager Menu:");
-            System.out.println("1. List All Products");
-            System.out.println("2. Add New Product");
-            System.out.println("3. Remove Product");
-            System.out.println("4. List All Suppliers");
-            System.out.println("5. Get Supplier Phone Number");
-            System.out.println("6. Change Product Price");
-            System.out.println("7. Order From Supplier");
-            System.out.println("8. Exit");
+            System.out.println("[1] List All Products");
+            System.out.println("[2] Add New Product");
+            System.out.println("[3] Remove Product");
+            System.out.println("[4] List All Suppliers");
+            System.out.println("[5] Get Supplier Phone Number");
+            System.out.println("[6] Change Product Price");
+            System.out.println("[7] Exit");
 
             System.out.println("What would you like to do? Enter the choice number: ");
             int choice = scnr.nextInt();
@@ -112,23 +111,13 @@ public class Manager {
                     changePrice(productName, newPrice);
                     break;
                 case 7:
-                    System.out.println("Enter supplier name: ");
-                    String supplierForOrder = scnr.nextLine();
-                    System.out.println("Enter product name: ");
-                    String productForOrder = scnr.nextLine();
-                    System.out.println("Enter price: ");
-                    double orderPrice = scnr.nextDouble();
-                    orderFromSupplier(supplierForOrder, productForOrder, orderPrice);
-                    break;
-                case 8:
-                    exit = true;
-                    break;
+                    return true;
                 default:
                     System.out.println("Invalid choice. Please try again.");
                     break;
             }
             }
-
+            return false;
         }
     }
 
