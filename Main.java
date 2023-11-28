@@ -13,12 +13,22 @@ public class Main {
         boolean online = true;
 
         while (online) {
-            online = menuOptions(scnr, boutique);
+            online = NoIdea.menuOptions(scnr, boutique);
         }
+        
+
+
     }
+}
+/* import java.util.Scanner;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 
-    private static boolean menuOptions(Scanner scnr, Boutique boutique) {
+public class NoIdea {
+
+    public static boolean menuOptions(Scanner scnr, Boutique boutique) {
         boolean continueMenu = true;
         while (continueMenu) {
             int choice = scnr.nextInt();
@@ -37,10 +47,10 @@ public class Main {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-        return true;
-    }
+        return true;}
+    
 
-    private static void customerView(Scanner scnr, Boutique boutique) {
+    public static void customerView(Scanner scnr, Boutique boutique) {
         System.out.println("Are you a member? (Y/N)");
         String memberResponse = scnr.nextLine().trim().toUpperCase();
         boolean isMember = memberResponse.equals("Y");
@@ -91,7 +101,7 @@ public class Main {
         Checkout.printCart();
     }
 
-        private static void managerView(Scanner scnr, Boutique boutique) {
+        public static void managerView(Scanner scnr, Boutique boutique) {
             final String password = "Boutique";
             System.out.println("Please enter the manager password:");
             String inputPassword = scnr.nextLine();
@@ -105,3 +115,4 @@ public class Main {
             manager.managerMenu(scnr);
             }
         }
+*/
