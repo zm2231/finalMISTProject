@@ -13,7 +13,7 @@ public class Main {
         boolean online = true;
 
         while (online) {
-            online = NoIdea.menuOptions(scnr, boutique);
+            online = MenuNavigation.menuOptions(scnr, boutique);
         }
         
 
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 
-public class NoIdea {
+public class MenuNavigation {
 
     public static boolean menuOptions(Scanner scnr, Boutique boutique) {
         boolean continueMenu = true;
