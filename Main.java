@@ -34,6 +34,7 @@ import java.util.HashSet;
 
 public class MenuNavigation {
 
+	private static boolean isMember = false;
     public static boolean menuOptions(Scanner scnr, Boutique boutique) {
         boolean continueMenu = true;
         while (continueMenu) {
@@ -59,7 +60,9 @@ public class MenuNavigation {
     public static void customerView(Scanner scnr, Boutique boutique) {
         System.out.println("Would You Like To Become A Member? (Y/N)");
         String memberResponse = scnr.nextLine().trim().toUpperCase();
-        boolean isMember = memberResponse.equals("Y");
+        if(memberResponse.equals("Y")) {
+        	isMember = true;
+        }
 
         System.out.println("\nFeatured Product of the Day");
         for (FeaturedProduct featuredProduct : boutique.getFeaturedProducts()) {
@@ -104,6 +107,7 @@ public class MenuNavigation {
         }
 
         Checkout.CalculateCart();
+        Checkout.DiscountCheck(isMember);
         Checkout.printCart();
     }
 

@@ -11,6 +11,7 @@ public class Checkout {
 	private static double totalCostofCart;
 	private static String MemberIDofCart;
 	private static boolean IsMemberofCart;
+	private static double Discount;
 	private double totalCost;
 	private String MemberID;
 	private boolean IsMember;
@@ -41,43 +42,7 @@ public class Checkout {
 	public static void Selections(String id, Double price) {
 		TodayProducts.put(id, price);
 	}
-
-	public static void addCart(Scanner scnr) {
-		String addition = scnr.nextLine();
-		String key = addition.toLowerCase();
-		String check = key;
-		Boolean MultipleOrders;
-		
-		System.out.println();
-		System.out.println("For the Sake of Inventory Please Only Order One");
-		System.out.println("Please Type \"Done\" When You Are Finished "); 
-		while(!check.equals("done")) {
-			for(String name : TodayProducts.keySet()) {
-				String LowerCaseProducts = name.toLowerCase();
-				if(LowerCaseProducts.equals(key)) {
-					MultipleOrders = Checkout.add(key);
-					Checkout.add(key);
-					if(!MultipleOrders){
-						System.out.println();
-						System.out.println("No Duplicate Orders");
-						System.out.println("Please Select Another Item");
-						System.out.println();
-						break;
-					}
-					else{
-						System.out.println("Sucuessfully Added: " + name);
-						break;
-					}
-				}
-				
-				
-				
-			}
-			addition = scnr.nextLine();
-			key = addition.toLowerCase();
-			check = key;
-		}
-	}
+	
 	public static void CalculateCart() {
 		for(String Products : TodayProducts.keySet()) {
 
@@ -88,10 +53,29 @@ public class Checkout {
 				totalCostofCart += TodayProducts.get(Products);
 			}
 		}
+	}
+	public static void DiscountCheck(Boolean Holder) {
 		
+		if(Holder) {
+			Discount = .9;
+		}
+		else {
+			Discount = 1;
+		}
 	}
 	public static void printCart() {
-		System.out.println("Total Price: " + totalCostofCart);
+		if(Discount == 1) {
+			System.out.println("Total Price: " + totalCostofCart);
+		}
+		else {
+			double ReducePrice = totalCostofCart*Discount;
+			double Savings = totalCostofCart * (1-Discount);
+			ReducePrice = (double)Math.round(ReducePrice*100)/100;
+			Savings = (double)Math.round(Savings*100)/100;
+			System.out.println("Your Final Price Is " + ReducePrice);
+			System.out.println("You Saved " + Savings);
+		}
+
 	}
 
 }
