@@ -5,7 +5,7 @@ public class Boutique {
     private HashSet<Product> products;
     private ArrayList<FeaturedProduct> featuredProducts;
     private Supplier[] suppliers;
-    private ArrayList<User> users;
+    private ArrayList<User> users = new ArrayList<User>();
 
 
     public Boutique() {
@@ -34,9 +34,11 @@ public class Boutique {
     }
 
     public void initializeUsers() {
-        users.add(new User("user1", "password1", "user1@example.com", true));
-        users.add(new User("user2", "password2", "user2@example.com", false));
-        users.add(new User("user3", "password3", "user3@example.com", true, 2000, 5, 15));
+        users.add(new User("Alice", "password123", "alice@example.com", true));
+        users.add(new User("Bob", "password456", "bob@example.com", false));
+        users.add(new User("Charlie", "password789", "charlie@example.com", true));
+        users.add(new User("Diana", "password321", "diana@example.com", false));
+        users.add(new User("Ethan", "password654", "ethan@example.com", true));
     }
 
     public void addFeaturedProduct(String productName) {
